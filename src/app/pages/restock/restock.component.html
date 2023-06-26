@@ -1,0 +1,45 @@
+<section class="page-title">
+  <h4>Restock</h4>
+  <div *ngIf="showSuccess" class="alert alert-success">
+    Stock updated successfully.
+  </div>
+</section>
+<form [formGroup]="restockForm" (submit)="restockSubmit()">
+  <table>
+    <tr>
+      <th>Currency</th>
+      <th>Current Balance</th>
+      <th>Add Balance</th>
+    </tr>
+    <tr *ngFor="let stock of atmStockData">
+      <td>{{ stock.display | currency : "USD" : "symbol" : "1.2-2" }}</td>
+      <td>{{ stock.amount }}</td>
+      <td>
+        <input
+          type="number"
+          formControlName="{{ stock.value }}"
+          class="form-control"
+        />
+        <div
+          *ngIf="restockForm.controls[stock.value].hasError('min')"
+          class="form-error"
+        >
+          Minimum required number is 0.
+        </div>
+      </td>
+    </tr>
+  </table>
+  <div class="button-container">
+    <button class="btn btn-reset" type="button" (click)="restockReset()">
+      Reset
+    </button>
+    <button
+      class="btn btn-primary"
+      [ngClass]="{ disabled: restockForm.invalid }"
+      [disabled]="restockForm.invalid"
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+</form>

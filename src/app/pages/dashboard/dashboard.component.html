@@ -1,0 +1,23 @@
+<section class="page-title">
+  <h4>Current Stock in ATM</h4>
+</section>
+<div class="atm-stock-wrapper">
+  <app-table
+    class="current-stock"
+    [dataSource]="dataSource"
+    [initColumns]="initColumns"
+  ></app-table>
+
+  <div class="total-amount">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Total Avalible Amount</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ avalibleAmount | currency }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<h4 class="transactions">Transactions</h4>
+<app-transactions></app-transactions>

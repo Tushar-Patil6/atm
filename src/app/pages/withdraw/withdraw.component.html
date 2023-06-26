@@ -1,0 +1,40 @@
+<section class="page-title">
+  <h4>Withdraw</h4>
+  <div *ngIf="showSuccessMessage" class="alert alert-success">
+    {{ showSuccessMessage }}
+  </div>
+  <div *ngIf="showErrorMessage" class="alert alert-danger">
+    {{ showErrorMessage }}
+  </div>
+</section>
+<div id="withdrawal">
+  <form [formGroup]="withdrawalForm" (submit)="withdrawalSubmit()">
+    <table>
+      <tr>
+        <td>Amount</td>
+        <td>
+          <input type="number" formControlName="amount" class="form-control" />
+          <div
+            *ngIf="withdrawalForm.controls['amount'].hasError('min')"
+            class="form-error"
+          >
+            Minimum required amount is 1.
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="button-container">
+      <button class="btn btn-reset" type="button" (click)="withdrawalReset()">
+        Reset
+      </button>
+      <button
+        class="btn btn-primary"
+        [ngClass]="{ disabled: withdrawalForm.invalid }"
+        [disabled]="withdrawalForm.invalid"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,14 @@
+<article>
+  <table mat-table [dataSource]="dataSourcevalue" class="mat-elevation-z8">
+    <ng-container [matColumnDef]="col?.name" *ngFor="let col of initColumns">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ col?.display }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ col?.currency }}{{ element[col?.name] }}
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</article>

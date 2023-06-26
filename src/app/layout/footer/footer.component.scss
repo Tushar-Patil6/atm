@@ -1,0 +1,17 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  min-height: 50px;
+  align-items: center;
+  background-color: cadetblue;
+  color: white;
+  font-weight: 600;
+
+  a {
+    color: white;
+  }
+}

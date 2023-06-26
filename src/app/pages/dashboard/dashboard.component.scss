@@ -1,0 +1,27 @@
+.transactions {
+  display: block;
+  margin-top: 50px;
+}
+.current-stock {
+  display: block;
+  width: 68%;
+}
+.atm-stock-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.total-amount {
+  width: 28%;
+
+  .mat-mdc-card-header {
+    padding: 16px;
+    background: cadetblue;
+    font-weight: bold;
+    color: black;
+    justify-content: center;
+  }
+  .mat-mdc-card-content {
+    padding: 16px;
+    text-align: center;
+  }
+}

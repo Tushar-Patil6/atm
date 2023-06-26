@@ -1,0 +1,11 @@
+<nav class="header">
+  <h1 class="logo"><a routerLink="">ATM</a></h1>
+  <ul class="main-nav">
+    <li *ngIf="authenticated"><a routerLink="overview">Overview</a></li>
+    <li *ngIf="authenticated"><a routerLink="restock">Restock</a></li>
+    <li *ngIf="authenticated"><a routerLink="withdraw">Withdraw</a></li>
+    <li *ngIf="authenticated"><a routerLink="transactions">Transactions</a></li>
+    <li *ngIf="!authenticated"><a routerLink="">Login</a></li>
+    <li *ngIf="authenticated"><a (click)="logoutUser()">Logout</a></li>
+  </ul>
+</nav>
